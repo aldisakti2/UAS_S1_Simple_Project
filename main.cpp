@@ -20,5 +20,6 @@ int main()
     int pilih;
     menu();
     cout << "Masukkan Pilihan Anda (1-7): "; cin >> pilih;
+    cout << "hello world!" << endl;
     return 0;
 }

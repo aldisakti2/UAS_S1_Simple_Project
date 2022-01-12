@@ -127,6 +127,7 @@ int main()
 
         switch(pilihan){
             case 1:
+                {
                 cout << "1. Nama" << endl;
                 cout << "   Berapa nama yang ingin di input : "; cin >> length;
 
@@ -150,7 +151,9 @@ int main()
                 cout << "   ";
                 print_array1(arr1, length);
                 break;
+                }
             case 2:
+                {
                 cout << "2. Angka" << endl;
                 cout << "   Berapa angka yang ingin di input : "; cin >> length;
 
@@ -174,8 +177,11 @@ int main()
                 selection_sort2(arr2, length);
                 print_array2(arr2, length);
                 break;
+                }
             default:
+                {
                 cout << "Masukkan pilihan yang ada pada menu" << endl;
+                }
         }
     }else if (pilih == 6){
         

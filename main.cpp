@@ -1,20 +1,9 @@
 #include <iostream>
-
+#include <iomanip>
+#include <conio.h>
 using namespace std;
 
-void menu(){
-    cout << "================================\n";
-    cout << "======== MENU MODUL C++ ========\n";
-    cout << "================================\n" << endl;
-    cout << "1. Input dan Output\n";
-    cout << "2. Percabangan\n";
-    cout << "3. Perulangan\n";
-    cout << "4. Array\n";
-    cout << "5. Sorting\n";
-    cout << "6. Searching\n";
-    cout << "7. Rekursif\n\n";
-}
-
+//UNTUK CASE 5 SORTING
 void insertion_sort1(string arr1[], int length){
     int i, j;
     string temp;
@@ -100,20 +89,55 @@ void print_array2(double arr2[], int length){
 
 int main()
 {
-    int pilih;
-    menu();
-    cout << "Masukkan Pilihan Anda (1-7): "; cin >> pilih;
-    cout << endl;
-    
-    if(pilih == 1){
-        
-    }else if (pilih == 2){
-        
-    }else if (pilih == 3){
-        
-    }else if (pilih == 4){
-        
-    }else if (pilih == 5){
+     int pilih;
+    do
+    {
+        cout << "================================\n";
+        cout << "======== MENU MODUL C++ ========\n";
+        cout << "================================\n" << endl;
+        cout << "1. Input dan Output\n";
+        cout << "2. Percabangan\n";
+        cout << "3. Perulangan\n";
+        cout << "4. Array\n";
+        cout << "5. Sorting\n";
+        cout << "6. Searching\n";
+        cout << "7. Rekursif\n";
+        cout << "8. Exit\n";
+        cout << "Masukkan Pilihan Anda: "; cin >> pilih;
+        system("cls");
+
+    if(pilih==1){
+        int umur;
+        string nama;
+            cout << "Nama Anda: "; cin >> nama;
+            cout << "Umur Anda: "; cin >> umur;
+            cout << "\nData yang Anda Inputkan: " << endl << nama << endl << umur << endl;
+            cout << "\ntap any key to return to the menu...";
+            getch();
+            system("cls");
+    }
+    else if (pilih==2){
+            cout << "Percabangan";
+            //ISI
+            cout << "\ntap any key to return to the menu...";
+            getch();
+            system("cls");
+    }
+    else if (pilih==3){
+            cout << "Perulangan";
+            //ISI
+            cout << "\ntap any key to return to the menu...";
+            getch();
+            system("cls");
+    }
+    else if (pilih==4){
+            cout << "Array";
+            //ISI
+            cout << "\ntap any key to return to the menu...";
+            getch();
+            system("cls");
+    }
+    else if (pilih==5){
         int length, pilihan;
         string arr1[100], karakter;
         double arr2[100], angka;
@@ -125,7 +149,8 @@ int main()
         cout << "Masukkan Pilihan : "; cin >> pilihan;
         cout << endl;
 
-        switch(pilihan){
+        switch(pilihan)
+                {
             case 1:
                 {
                 cout << "1. Nama" << endl;
@@ -150,6 +175,9 @@ int main()
                 bubble_sort1(arr1, length);
                 cout << "   ";
                 print_array1(arr1, length);
+                cout << "\ntap any key to return to the menu...";
+                getch();
+                system("cls");
                 break;
                 }
             case 2:
@@ -176,19 +204,46 @@ int main()
                 cout << "   ";
                 selection_sort2(arr2, length);
                 print_array2(arr2, length);
+                cout << "\ntap any key to return to the menu...";
+                getch();
+                system("cls");
                 break;
                 }
             default:
                 {
                 cout << "Masukkan pilihan yang ada pada menu" << endl;
+                cout << "\ntap any key to return to the menu...";
+                getch();
+                system("cls");
+                break;
                 }
         }
-    }else if (pilih == 6){
-        
-    }else if (pilih == 7){
-        
-    }else{
-        cout << "Masukkan pilihan yang ada pada menu" << endl;
     }
+    else if (pilih==6){
+            cout << "Searching";
+            //ISI
+            cout << "\ntap any key to return to the menu...";
+            getch();
+            system("cls");
+    }
+    else if (pilih==7){
+            cout << "Rekursif";
+            //ISI
+            cout << "\ntap any key to return to the menu...";
+            getch();
+            system("cls");
+    }
+    else if (pilih==8){
+            cout << "\ntap any key to Exit...";
+            getch();
+    }
+    else {
+            cout << "tidak ada pilihan ke-" << pilih;
+            cout << "\ntap any key to return to the menu...";
+            getch();
+            system("cls");
+        }
+    } 
+    while (pilih !=8);
     return 0;
 }

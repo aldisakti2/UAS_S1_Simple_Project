@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <conio.h>
+
 using namespace std;
 
 //UNTUK CASE 5 SORTING
@@ -85,6 +86,16 @@ void print_array2(double arr2[], int length){
         cout << arr2[i] << "  ";
     }
     cout << endl;
+}
+
+//UNTUK CASE 7
+int factorial(int n){
+    if (n > 1){
+        return n * factorial(n - 1);
+    }
+    else {
+        return 1;
+    }
 }
 
 int main()
@@ -227,8 +238,11 @@ int main()
             system("cls");
     }
     else if (pilih==7){
-            cout << "Rekursif";
-            //ISI
+            int recursive_factorial_number;
+            cout << "====== Rekursif ======\n" << endl;
+            cout << "Masukkan bilangan Faktorial : ";
+            cin >> recursive_factorial_number;
+            cout << "Hasil Faktorial dari " << recursive_factorial_number << " adalah : " << factorial(recursive_factorial_number) << endl;
             cout << "\ntap any key to return to the menu...";
             getch();
             system("cls");

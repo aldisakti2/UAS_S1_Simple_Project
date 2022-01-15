@@ -199,7 +199,6 @@ int main()
                     }
                 }
                 cout<<"\n\n\n";
-
             }while(z!=22);
 
             if(z==22){

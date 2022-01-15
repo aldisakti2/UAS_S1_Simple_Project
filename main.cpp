@@ -88,31 +88,6 @@ void print_array2(double arr2[], int length){
     cout << endl;
 }
 
-//UNTUK CASE 4
-int search(string C [], int cc, string z) { 
-    int posisi, i, ketemu;
-
-    if (cc <= 0)
-        posisi = -1;
-    else {
-        ketemu = 0;
-        i = 0;
-        while ((i < cc ) && ! ketemu) {
-            if(C[i]==z) {
-                posisi = i;
-                ketemu = 1;
-            } else {
-            i++;
-            }
-
-            if (!ketemu) {
-                posisi = -1;
-            }
-        }
-    }
-    return posisi;
-}
-
 //UNTUK CASE 7
 int factorial(int n){
     if (n > 1){
@@ -169,64 +144,67 @@ int main()
     else if (pilih==4){
             cout << "Array";
             //ISI
-            //PROGRAM SUDOKU
-            int cc=25;
+            //PROGRAM MINESWEPER
             //platform awal
-            string A[5][5] ={{" ","1"," "," ","4"},
-                             {"3"," "," ","4"," "},
-                             {" ","3","2"," "," "},
-                             {" "," "," ","2","5"},
-                             {"5"," "," "," "," "}};
+            string A[5][5] ={{" "," "," "," "," "},{" "," "," "," "," "},{" "," "," "," "," "},{" "," "," "," "," "},{" "," "," "," "," "}};
             //kunci jawaban
-            string B[5][5] ={{"2"," ","5","3","4"},
-                             {" ","5","1"," ","2"},
-                             {"4"," "," ","5","1"},
-                             {"1","4","3"," "," "},
-                             {" ","2","4","1","3"}};
-            string C[25]={};
+            string B[5][5] ={{"1","1","1","_","_"},{"1","*","2","1","1"},{"1","1","3","*","2"},{"_","_","2","*","2"},{"_","_","1","1","1"}};
+            string C[5][5] ={{"1","1","1","_","_"},{"1","*","2","1","1"},{"1","1","3","*","2"},{"_","_","2","*","2"},{"_","_","1","1","1"}};
             int x,y;
-            string z;
-            int nilai = 1;
+            int z=0;
+            string a,b,c;
+            //tampilan awal
             do{
-                //tampilan awal
-                cout<<"\n\n\t    *SUDOKU*\n";
-                cout<<"===============================\n";
+                cout<<"\t *MINESWEEPER*";
+                cout<<"\n===============================\n";
                 for (x=0;x<=4;x++){
                     cout<<"|  ";
-                        for (y=0;y<=4;y++){
-                                cout<<A[x][y]<<"  |  ";
-                        }
-                   cout<<endl;
-                   cout<<"===============================\n";
+                    for (y=0;y<=4;y++){
+                        cout<<A[x][y]<<"  |  ";
+                    }
+                    cout<<endl;
+                    cout<<"===============================\n";
                 }
 
-                cout<<"\nMasukkan angka : ";
-                cin>>z;
-                cout<<"Pilih kolom : ";
+                cout<<"\nMasukkan Kolom : ";
                 cin>>y;
-                cout<<"Pilih baris : ";
+                cout<<"Masukkan Baris : ";
                 cin>>x;
+            //jika kondisi salah
+                if(B[x-1][y-1]=="*"){
+                    A[x-1][y-1]="*";
 
-                //jika kondisi salah
-                if(z!=B[x-1][y-1]){
-                    z=" ";
+                    cout<<"\n\n\t *MINESWEEPER*";
+                    cout<<"\n===============================\n";
+                    for (x=0;x<=4;x++){
+                        cout<<"|  ";
+                        for (y=0;y<=4;y++){
+                            cout<<A[x][y]<<"  |  ";
+                        }
+                        cout<<endl;
+                        cout<<"===============================\n";
+                    }
+                    cout<<"\n\t  Anda kalah\n";
+                    break;
+            //jika kondisi benar
+                }else{
+                    a=A[x-1][y-1];
+                    b=B[x-1][y-1];
+                    c=C[x-1][y-1];
+
+                    if(b==c && b!=a){
+                        A[x-1][y-1]=B[x-1][y-1];
+                        B[x-1][y-1]="";
+                        z++;
+                    }
                 }
+                cout<<"\n\n\n";
 
-                //jika kondisi benar
-                int pos=search(C,cc,z);
-                if(pos==-1){
-                    A[x-1][y-1]=z;
-                    B[x-1][y-1]="no";
-                    C[nilai]=z;
-                    nilai++;
-                    C[0]=" ";
-                }
-               cout<<"\n\n";
+            }while(z!=22);
 
-            }while(nilai!=15);
-
-            cout<<"\t  Anda menang\n";
-        }
+            if(z==22){
+                cout<<"\t  Anda menang\n";
+            }
         getch();
         system("cls");
     }

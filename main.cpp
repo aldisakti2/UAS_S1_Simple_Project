@@ -183,10 +183,10 @@ int main()
                              {"4"," "," ","5","1"},
                              {"1","4","3"," "," "},
                              {" ","2","4","1","3"}};
-            string C[25]={" "};
+            string C[25]={};
             int x,y;
             string z;
-            int nilai = 0;
+            int nilai = 1;
             do{
                 //tampilan awal
                 cout<<"\n\n\t    *SUDOKU*\n";
@@ -219,10 +219,11 @@ int main()
                     B[x-1][y-1]="no";
                     C[nilai]=z;
                     nilai++;
+                    C[0]=" ";
                 }
                cout<<"\n\n";
 
-            }while(nilai!=16);
+            }while(nilai!=15);
 
             cout<<"\t  Anda menang\n";
         }

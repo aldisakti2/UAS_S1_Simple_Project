@@ -88,6 +88,31 @@ void print_array2(double arr2[], int length){
     cout << endl;
 }
 
+//UNTUK CASE 5
+int search(string C [], int cc, string z) { 
+    int posisi, i, ketemu;
+
+    if (cc <= 0)
+        posisi = -1;
+    else {
+        ketemu = 0;
+        i = 0;
+        while ((i < cc ) && ! ketemu) {
+            if(C[i]==z) {
+                posisi = i;
+                ketemu = 1;
+            } else {
+            i++;
+            }
+
+            if (!ketemu) {
+                posisi = -1;
+            }
+        }
+    }
+    return posisi;
+}
+
 //UNTUK CASE 7
 int factorial(int n){
     if (n > 1){
@@ -144,9 +169,65 @@ int main()
     else if (pilih==4){
             cout << "Array";
             //ISI
-            cout << "\ntap any key to return to the menu...";
-            getch();
-            system("cls");
+            //PROGRAM SUDOKU
+            int cc=25;
+            //platform awal
+            string A[5][5] ={{" ","1"," "," ","4"},
+                             {"3"," "," ","4"," "},
+                             {" ","3","2"," "," "},
+                             {" "," "," ","2","5"},
+                             {"5"," "," "," "," "}};
+            //kunci jawaban
+            string B[5][5] ={{"2"," ","5","3","4"},
+                             {" ","5","1"," ","2"},
+                             {"4"," "," ","5","1"},
+                             {"1","4","3"," "," "},
+                             {" ","2","4","1","3"}};
+            string C[25]={" "};
+            int x,y;
+            string z;
+            int nilai = 0;
+            do{
+                //tampilan awal
+                cout<<"\n\n\t    *SUDOKU*\n";
+                cout<<"===============================\n";
+                for (x=0;x<=4;x++){
+                    cout<<"|  ";
+                        for (y=0;y<=4;y++){
+                                cout<<A[x][y]<<"  |  ";
+                        }
+                   cout<<endl;
+                   cout<<"===============================\n";
+                }
+
+                cout<<"\nMasukkan angka : ";
+                cin>>z;
+                cout<<"Pilih kolom : ";
+                cin>>y;
+                cout<<"Pilih baris : ";
+                cin>>x;
+
+                //jika kondisi salah
+                if(z!=B[x-1][y-1]){
+                    z=" ";
+                }
+
+                //jika kondisi benar
+                int pos=search(C,cc,z);
+                if(pos==-1){
+                    A[x-1][y-1]=z;
+                    B[x-1][y-1]="no";
+                    C[nilai]=z;
+                    nilai++;
+                }
+               cout<<"\n\n";
+
+            }while(nilai!=16);
+
+            cout<<"\t  Anda menang\n";
+        }
+        getch();
+        system("cls");
     }
     else if (pilih==5){
         int length, pilihan;

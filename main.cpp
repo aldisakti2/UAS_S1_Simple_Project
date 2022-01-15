@@ -88,7 +88,7 @@ void print_array2(double arr2[], int length){
     cout << endl;
 }
 
-//UNTUK CASE 5
+//UNTUK CASE 4
 int search(string C [], int cc, string z) { 
     int posisi, i, ketemu;
 

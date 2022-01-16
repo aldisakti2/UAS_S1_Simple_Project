@@ -130,6 +130,61 @@ int main()
     else if (pilih==2){
             cout << "Percabangan";
             //ISI
+            int nilai;
+            string password, grade;
+
+            cout << "========= Login =========" << endl;
+            cout << "Masukan password (kota asal ITTP) : ";
+            cin >> password;
+
+            // percabangan if/else
+            if (password == "purwokerto" || "Purwokerto" || "PURWOKERTO"){
+                cout << "Selamat datang!" << endl << endl;
+    
+                cout << "=== Program Grade Nilai ===" << endl;
+                cout << "Inputkan nilai Anda : ";
+                cin >> nilai;
+            if (nilai >= 90) {
+                grade = "A";
+            } else if (nilai >= 80) {
+                grade = "B+";
+            } else if (nilai >= 70) { 
+                grade = "B";
+            } else if (nilai >= 60) { 
+                grade = "C+";
+            } else if (nilai >= 50) { 
+                grade = "C";
+            } else if (nilai >= 40) { 
+                grade = "D";
+            } else if (nilai >= 30) { 
+                grade = "E";
+            } else {
+                grade = "F";
+            }
+
+            cout << "Grade anda: " << grade << endl << endl;
+        
+            char tips;
+            cout << "Ingin tau tips mendapatkan nilai bagus? (Y/N) : \n";
+            cin >> tips;
+        
+            //Percabangan Switch
+            switch (toupper(tips)){
+                case 'Y':
+                    cout << "\nTipsnya adalah Belajar dan berdoa" << endl << endl;
+                    break;
+                case 'N':
+                    cout << "Oke" << endl;
+                    break;
+                default:
+                    cout << "Input Salah!" << endl;
+            }
+            } else {
+                cout << "Password salah, coba lagi!"  << endl;
+            }
+
+            cout << "Terimakasih sudah menggunakan aplikasi ini!" << endl;
+
             cout << "\ntap any key to return to the menu...";
             getch();
             system("cls");

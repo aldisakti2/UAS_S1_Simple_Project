@@ -440,6 +440,9 @@ int main()
                 cout<<"Yah sayang sekali data yang kamu cari tidak ditemukan"<<endl;
                 cout << "                              " << endl;
             }
+                cout << "\nTap any key to return to the menu...";
+                getch();
+                system("cls");
         }
 
     else if (pilih==7){

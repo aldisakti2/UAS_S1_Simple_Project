@@ -374,12 +374,39 @@ int main()
         }
     }
     else if (pilih==6){
-            cout << "Searching";
+             cout << "Selamat Datang di Pemograman Searching" << endl;
+            cout << "                              " << endl;
             //ISI
-            cout << "\ntap any key to return to the menu...";
-            getch();
-            system("cls");
-    }
+            int i;
+            int cari, ketemu;
+            int A[100];
+
+            cout<<" silahkan masukan 5 buah bilangan : \n\n";
+            for(i=1; i<=5; i++)
+            {
+                cout<<" data ke- "<<i<<" = ";
+                cin>>A[i];
+            }
+            cout<<endl;
+            cout<<"Yuk input bilangan yang kamu cari : ";cin>>cari;
+            cout<<endl;
+
+            ketemu=0;
+            for(i=0; i<=5; i++)
+            {
+                if (A[i]==cari)
+                {
+                    ketemu=1;
+                    cout<<"Data yang kamu cari ditemukan pada indeks ke-"<<i<<endl;
+                }
+            }
+            if(ketemu==0)
+            {
+                cout<<"Yah sayang sekali data yang kamu cari tidak ditemukan"<<endl;
+                cout << "                              " << endl;
+            }
+        }
+
     else if (pilih==7){
             int recursive_factorial_number;
             cout << "====== Rekursif ======\n" << endl;

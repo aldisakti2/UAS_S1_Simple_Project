@@ -128,7 +128,7 @@ int main()
             system("cls");
     }
     else if (pilih==2){
-            cout << "Percabangan";
+
             //ISI
             int nilai;
             string password, grade;
@@ -190,7 +190,7 @@ int main()
             system("cls");
     }
     else if (pilih==3){
-            cout << "Perulangan";
+
             //ISI
             int angka, pilihOperasi;
 
@@ -226,7 +226,7 @@ int main()
             system("cls");
     }
     else if (pilih==4){
-            cout << "Array";
+
             //ISI
             //PROGRAM MINESWEPER
             //platform awal

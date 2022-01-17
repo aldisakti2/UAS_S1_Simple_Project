@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <conio.h>
+#include <string>
 
 using namespace std;
 
@@ -118,11 +119,45 @@ int main()
         system("cls");
 
     if(pilih==1){
-        int umur;
         string nama;
-            cout << "Nama Anda: "; cin >> nama;
-            cout << "Umur Anda: "; cin >> umur;
-            cout << "\nData yang Anda Inputkan: " << endl << nama << endl << umur << endl;
+        string nim;
+        string jurusan;
+        string kelas;
+        string nomor;
+        string alamat;
+
+            cout << "------------------------------------------"<<endl;
+            cout << "           Masukan Data Berikut           "<< endl;
+            cout << "------------------------------------------"<<endl;
+            cout << "Nama            : ";
+            cin >> nama;
+
+            cout << "NIM             : " ;
+            cin >> nim;
+
+            cout << "Jurusan         : ";
+            cin >> jurusan;
+
+            cout << "Kelas           : ";
+            cin >> kelas;
+
+            cout << "Alamat          : ";
+            cin >> alamat;
+
+            cout << "Nomor HP        : ";
+            cin >> nomor;
+
+            cout <<endl;
+            cout << "------------------------------------------"<<endl;
+            cout << "              DATA MAHASISWA              "<<endl;
+            cout << "------------------------------------------"<<endl;
+
+            cout << "Nama       : "<<nama<<endl;
+            cout << "NIM        : "<<nim<<endl;
+            cout << "Jurusan    : "<<jurusan<<endl;
+            cout << "Kelas      : "<<kelas<<endl;
+            cout << "Alamat     : "<<alamat<<endl;
+            cout << "Nomor HP   : "<<nomor<<endl;
             cout << "\ntap any key to return to the menu...";
             getch();
             system("cls");

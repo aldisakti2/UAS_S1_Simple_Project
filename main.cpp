@@ -192,6 +192,35 @@ int main()
     else if (pilih==3){
             cout << "Perulangan";
             //ISI
+            int angka, pilihOperasi;
+
+            cout << "Program ini akan melakukan penjumlahan, pengurangan, dan perkalian ^^\n";
+            cout << "Program akan melakukan perhitungan dari bilangan yang diinput dengan angka 1-10 ^^\n";
+            cout << "\nAyo, masukkan bilangan yang akan dihitung : ";
+            cin >> angka;
+            cout << "\nDaftar operasi perhitungan\n";
+            cout << "1. Penjumlahan\n";
+            cout << "2. Pengurangan\n";
+            cout << "3. Perkalian\n";
+            cout << "Pilih Operasi perhitungan : ";
+            cin >> pilihOperasi;
+
+            if (pilihOperasi==1){
+                cout << "\nPENJUMLAHAN\n";
+                for (int i = 0; i<10; i++){
+                    cout << angka << " + " << i+1 << " = " << angka+(i+1)<< endl;
+                }
+            }else if (pilihOperasi==2){
+                cout << "\nPENGURANGAN\n";
+                for (int i = 0; i<10; i++){
+                    cout << angka << " - " << i+1 << " = " << angka-(i+1)<< endl;
+                }
+            }else {
+                cout << "\nPERKALIAN\n";
+                for (int i = 0; i<10; i++){
+                    cout << angka << " x " << i+1 << " = " << angka*(i+1)<< endl;
+                }
+            }
             cout << "\ntap any key to return to the menu...";
             getch();
             system("cls");

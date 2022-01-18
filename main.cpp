@@ -1,43 +1,89 @@
 #include <iostream>
 #include <iomanip>
 #include <conio.h>
-#include <string>
 
 using namespace std;
 
+//UNTUK BACK TO MENU
+void back_to_menu(){
+    cout << "\nTap any key to return to the menu...";
+    getch();
+    system("cls");
+}
+
+//UNTUK CASE 1
+void case_1(){
+    string nama, nim, jurusan, kelas, nomor, alamat;
+
+    cout << "------------------------------------------\n";
+    cout << "           Masukan Data Berikut           \n";
+    cout << "------------------------------------------\n\n";
+
+    cout << "Nama            : ";
+    getline(cin >> ws,nama);
+
+    cout << "NIM             : " ;
+    cin >> nim;
+
+    cout << "Jurusan         : ";
+    getline(cin >> ws,jurusan);
+
+    cout << "Kelas           : ";
+    cin >> kelas;
+
+    cout << "Alamat          : ";
+    getline(cin >> ws,alamat);
+
+    cout << "Nomor HP        : ";
+    cin >> nomor;
+
+    system("cls");
+    cout <<endl;
+    cout << "------------------------------------------"<<endl;
+    cout << "              DATA MAHASISWA              "<<endl;
+    cout << "------------------------------------------"<<endl;
+
+    cout << "Nama       : "<<nama<<endl;
+    cout << "NIM        : "<<nim<<endl;
+    cout << "Jurusan    : "<<jurusan<<endl;
+    cout << "Kelas      : "<<kelas<<endl;
+    cout << "Alamat     : "<<alamat<<endl;
+    cout << "Nomor HP   : "<<nomor<<endl;
+}
+
 //UNTUK CASE 5 SORTING
-void insertion_sort1(string arr1[], int length){
-    int i, j;
-    string temp;
-    
-    for(i=0; i<length; i++){
-        j=1;
-        
-        while(j>0 && arr1[j-1] > arr1[j]){
-            temp = arr1[j];
-            arr1[j] = arr1[j-1];
-            arr1[j-1] = temp;
-            j--;
+void bubble_sort(string arr[], int length){
+    bool not_sorted = true;
+    int j=0;
+    string tmp;
+
+    while (not_sorted){
+        not_sorted = false;
+        j++;
+        for (int i = 0; i < length - j; i++){
+            if (arr[i] > arr[i+1]){
+                tmp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = tmp;
+                not_sorted = true;
+            }
         }
     }
 }
 
-void bubble_sort1(string arr1[], int length){
-    bool not_sorted = true;
-    int i, j = 0;
+void selection_sort1(string arr[], int length){
+    int pos;
     string temp;
-
-    while(not_sorted){
-        not_sorted = false;
-        j++;
-        
-        for(i=0; i<length-1; i++){
-            if(arr1[i] < arr1[i+1]){
-                temp = arr1[i];
-                arr1[i] = arr1[i+1];
-                arr1[i+1] = temp;
-                not_sorted = true;
-            }
+    for(int i=0; i<length-1; i++){
+        pos = i;
+        for(int j=i+1; j<length; j++){
+            if(arr[j] > arr[pos])
+                pos = j;
+        }
+        if(pos != i){
+            temp = arr[i];
+            arr[i] = arr[pos];
+            arr[pos] = temp;
         }
     }
 }
@@ -114,53 +160,13 @@ int main()
         cout << "5. Sorting\n";
         cout << "6. Searching\n";
         cout << "7. Rekursif\n";
-        cout << "8. Exit\n";
+        cout << "8. Exit\n\n";
         cout << "Masukkan Pilihan Anda: "; cin >> pilih;
         system("cls");
 
     if(pilih==1){
-        string nama;
-        string nim;
-        string jurusan;
-        string kelas;
-        string nomor;
-        string alamat;
-
-            cout << "------------------------------------------"<<endl;
-            cout << "           Masukan Data Berikut           "<< endl;
-            cout << "------------------------------------------"<<endl;
-            cout << "Nama            : ";
-            cin >> nama;
-
-            cout << "NIM             : " ;
-            cin >> nim;
-
-            cout << "Jurusan         : ";
-            cin >> jurusan;
-
-            cout << "Kelas           : ";
-            cin >> kelas;
-
-            cout << "Alamat          : ";
-            cin >> alamat;
-
-            cout << "Nomor HP        : ";
-            cin >> nomor;
-
-            cout <<endl;
-            cout << "------------------------------------------"<<endl;
-            cout << "              DATA MAHASISWA              "<<endl;
-            cout << "------------------------------------------"<<endl;
-
-            cout << "Nama       : "<<nama<<endl;
-            cout << "NIM        : "<<nim<<endl;
-            cout << "Jurusan    : "<<jurusan<<endl;
-            cout << "Kelas      : "<<kelas<<endl;
-            cout << "Alamat     : "<<alamat<<endl;
-            cout << "Nomor HP   : "<<nomor<<endl;
-            cout << "\ntap any key to return to the menu...";
-            getch();
-            system("cls");
+            case_1();
+            back_to_menu();
     }
     else if (pilih==2){
 
@@ -175,7 +181,7 @@ int main()
             // percabangan if/else
             if (password == "purwokerto" || "Purwokerto" || "PURWOKERTO"){
                 cout << "Selamat datang!" << endl << endl;
-    
+
                 cout << "=== Program Grade Nilai ===" << endl;
                 cout << "Inputkan nilai Anda : ";
                 cin >> nilai;
@@ -183,26 +189,26 @@ int main()
                 grade = "A";
             } else if (nilai >= 80) {
                 grade = "B+";
-            } else if (nilai >= 70) { 
+            } else if (nilai >= 70) {
                 grade = "B";
-            } else if (nilai >= 60) { 
+            } else if (nilai >= 60) {
                 grade = "C+";
-            } else if (nilai >= 50) { 
+            } else if (nilai >= 50) {
                 grade = "C";
-            } else if (nilai >= 40) { 
+            } else if (nilai >= 40) {
                 grade = "D";
-            } else if (nilai >= 30) { 
+            } else if (nilai >= 30) {
                 grade = "E";
             } else {
                 grade = "F";
             }
 
             cout << "Grade anda: " << grade << endl << endl;
-        
+
             char tips;
             cout << "Ingin tau tips mendapatkan nilai bagus? (Y/N) : \n";
             cin >> tips;
-        
+
             //Percabangan Switch
             switch (toupper(tips)){
                 case 'Y':
@@ -220,9 +226,7 @@ int main()
 
             cout << "Terimakasih sudah menggunakan aplikasi ini!" << endl;
 
-            cout << "\ntap any key to return to the menu...";
-            getch();
-            system("cls");
+            back_to_menu();
     }
     else if (pilih==3){
 
@@ -256,9 +260,7 @@ int main()
                     cout << angka << " x " << i+1 << " = " << angka*(i+1)<< endl;
                 }
             }
-            cout << "\ntap any key to return to the menu...";
-            getch();
-            system("cls");
+            back_to_menu();
     }
     else if (pilih==4){
 
@@ -285,10 +287,11 @@ int main()
                     cout<<"===============================\n";
                 }
 
-                cout<<"\nMasukkan Kolom : ";
+                cout<<"\nMasukkan Kolom [1-5]: ";
                 cin>>y;
-                cout<<"Masukkan Baris : ";
+                cout<<"Masukkan Baris [1-5]: ";
                 cin>>x;
+
             //jika kondisi salah
                 if(B[x-1][y-1]=="*"){
                     A[x-1][y-1]="*";
@@ -305,6 +308,7 @@ int main()
                     }
                     cout<<"\n\t  Anda kalah\n";
                     break;
+
             //jika kondisi benar
                 }else{
                     a=A[x-1][y-1];
@@ -323,91 +327,86 @@ int main()
             if(z==22){
                 cout<<"\t  Anda menang\n";
             }
-        getch();
-        system("cls");
+
+        back_to_menu();
     }
+
     else if (pilih==5){
-        int length, pilihan;
-        string arr1[100], karakter;
-        double arr2[100], angka;
-        int i;
+        int length1, length2;
+        int pilihan, i;
 
         cout << "====== Sorting ======" << endl;
         cout << "1. Nama" << endl;
         cout << "2. Angka" << endl;
         cout << "Masukkan Pilihan : "; cin >> pilihan;
-        cout << endl;
 
-        switch(pilihan)
-                {
-            case 1:
-                {
+        if (pilihan == 1){
                 cout << "1. Nama" << endl;
-                cout << "   Berapa nama yang ingin di input : "; cin >> length;
+                cout << "   Berapa nama yang ingin di input : "; cin >> length1;
+                string arr1[length1];
 
-                for(i=0; i<length; i++){
+                for(i=0; i<length1; i++){
                     cout << "   Nama ke-" << i+1 << " : "; cin >> arr1[i];
-                    arr1[length] = karakter;
+                    //arr1[i] = karakter;
                 }
-                cout << endl;
 
+                //Hasil Sebelum Sorting
+                cout << endl;
                 cout << "   Urutan nama sebelum di sorting:" << endl;
                 cout << "   ";
-                print_array1(arr1, length);
-                insertion_sort1(arr1, length);
+                print_array1(arr1, length1);
+
+                //Pensortingan Data
+                bubble_sort(arr1, length1);
+
+                //Hasil Ascending Sorting
                 cout << endl;
                 cout << "   Uruturan nama setelah ascending sort:" << endl;
                 cout << "   ";
-                print_array1(arr1, length);
+                print_array1(arr1, length1);
+
+                //Hasil Descending Sorting
                 cout << endl;
                 cout << "   Uruturan nama setelah descending sort:" << endl;
-                bubble_sort1(arr1, length);
+                selection_sort1(arr1, length1);
                 cout << "   ";
-                print_array1(arr1, length);
-                cout << "\ntap any key to return to the menu...";
-                getch();
-                system("cls");
-                break;
-                }
-            case 2:
-                {
+                print_array1(arr1, length1);
+        }
+        else if(pilihan == 2){
                 cout << "2. Angka" << endl;
-                cout << "   Berapa angka yang ingin di input : "; cin >> length;
+                cout << "   Berapa angka yang ingin di input : "; cin >> length2;
+                double arr2[length2];
 
-                for(i=0; i<length; i++){
+                for(i=0; i<length2; i++){
                     cout << "   Angka ke-" << i+1 << " : "; cin >> arr2[i];
-                    arr2[length] = angka;
+                    //arr2[length] = angka;
                 }
-                cout << endl;
 
+                //Hasil Sebelum Sorting
+                cout << endl;
                 cout << "   Urutan angka sebelum di sorting:" << endl;
                 cout << "   ";
-                print_array2(arr2, length);
-                insertion_sort2(arr2, length);
+                print_array2(arr2, length2);
+                insertion_sort2(arr2, length2);
+
+                //Hasil Ascending Sorting
                 cout << endl;
                 cout << "   Uruturan angka setelah ascending sort:" << endl;
                 cout << "   ";
-                print_array2(arr2, length);
+                print_array2(arr2, length2);
+
+                //Hasil Descending Sorting
                 cout << endl;
                 cout << "   Uruturan angka setelah descending sort:" << endl;
                 cout << "   ";
-                selection_sort2(arr2, length);
-                print_array2(arr2, length);
-                cout << "\ntap any key to return to the menu...";
-                getch();
-                system("cls");
-                break;
-                }
-            default:
-                {
-                cout << "Masukkan pilihan yang ada pada menu" << endl;
-                cout << "\ntap any key to return to the menu...";
-                getch();
-                system("cls");
-                break;
-                }
+                selection_sort2(arr2, length2);
+                print_array2(arr2, length2);
         }
+
+        back_to_menu();
+
     }
+
     else if (pilih==6){
              cout << "Selamat Datang di Pemograman Searching" << endl;
             cout << "                              " << endl;
@@ -419,7 +418,7 @@ int main()
             cout<<" silahkan masukan 5 buah bilangan : \n\n";
             for(i=1; i<=5; i++)
             {
-                cout<<" data ke- "<<i<<" = ";
+                cout<<" data ke-"<<i<<" = ";
                 cin>>A[i];
             }
             cout<<endl;
@@ -440,10 +439,9 @@ int main()
                 cout<<"Yah sayang sekali data yang kamu cari tidak ditemukan"<<endl;
                 cout << "                              " << endl;
             }
-                cout << "\nTap any key to return to the menu...";
-                getch();
-                system("cls");
-        }
+
+            back_to_menu();
+    }
 
     else if (pilih==7){
             int recursive_factorial_number;
@@ -451,21 +449,20 @@ int main()
             cout << "Masukkan bilangan Faktorial : ";
             cin >> recursive_factorial_number;
             cout << "Hasil Faktorial dari " << recursive_factorial_number << " adalah : " << factorial(recursive_factorial_number) << endl;
-            cout << "\ntap any key to return to the menu...";
-            getch();
-            system("cls");
+            back_to_menu();
     }
+
     else if (pilih==8){
-            cout << "\ntap any key to Exit...";
+            cout << "\nTap any key to Exit...";
             getch();
+            cout << endl;
     }
+
     else {
-            cout << "tidak ada pilihan ke-" << pilih;
-            cout << "\ntap any key to return to the menu...";
-            getch();
-            system("cls");
+            cout << "tidak ada pilihan ke-" << pilih << endl;
+            back_to_menu();
         }
-    } 
+    }
     while (pilih !=8);
     return 0;
 }

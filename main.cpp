@@ -29,7 +29,7 @@ void case_1(){
     getline(cin >> ws,jurusan);
 
     cout << "Kelas           : ";
-    cin >> kelas;
+    getline(cin >> ws,kelas);
 
     cout << "Alamat          : ";
     getline(cin >> ws,alamat);
@@ -171,7 +171,7 @@ int main()
             case_1();
             back_to_menu();
     }
-    
+
     //CASE 2: Percabangan
     else if (pilih==2){
 
@@ -228,8 +228,8 @@ int main()
                     default:
                         cout << "Input Salah!" << endl;
                 }
-            } 
-        
+            }
+
             else {
                 cout << "Password salah, coba lagi!"  << endl;
             }
@@ -238,7 +238,7 @@ int main()
 
             back_to_menu();
     }
-    
+
     //CASE 3: PERULANGAN
     else if (pilih==3){
 
@@ -250,13 +250,13 @@ int main()
             cout << "Program akan melakukan perhitungan dari bilangan yang diinput dengan angka 1-10 ^^\n";
             cout << "\nAyo, masukkan bilangan yang akan dihitung : ";
             cin >> angka;
-        
+
             //PILIH OPERASI PERHITUNGAN
             cout << "\nDaftar operasi perhitungan\n";
             cout << "1. Penjumlahan\n";
             cout << "2. Pengurangan\n";
             cout << "3. Perkalian\n";
-        
+
             cout << "Pilih Operasi perhitungan : ";
             cin >> pilihOperasi;
 
@@ -266,14 +266,14 @@ int main()
                     cout << angka << " + " << i+1 << " = " << angka+(i+1)<< endl;
                 }
             }
-        
+
             else if ( pilihOperasi == 2 ){
                 cout << "\nPENGURANGAN\n";
                 for (int i = 0; i<10; i++){
                     cout << angka << " - " << i+1 << " = " << angka - (i + 1)<< endl;
                 }
             }
-        
+
             else {
                 cout << "\nPERKALIAN\n";
                 for (int i = 0; i<10; i++){
@@ -282,23 +282,23 @@ int main()
             }
             back_to_menu();
     }
-        
+
     //CASE 4: ARRAY (PENERAPAN ARRAY DALAM GAME MINESWEEPER SEDERHANA)
     else if (pilih==4){
 
             //PROGRAM MINESWEPER
             //ARRAY UNTUK MENAMPUNG TEBAKAN PEMAIN
             string A[5][5] ={{" "," "," "," "," "},{" "," "," "," "," "},{" "," "," "," "," "},{" "," "," "," "," "},{" "," "," "," "," "}};
-            
+
             //KUNCI JAWABAN GAME
             string B[5][5] ={{"1","1","1","_","_"},{"1","*","2","1","1"},{"1","1","3","*","2"},{"_","_","2","*","2"},{"_","_","1","1","1"}};
             string C[5][5] ={{"1","1","1","_","_"},{"1","*","2","1","1"},{"1","1","3","*","2"},{"_","_","2","*","2"},{"_","_","1","1","1"}};
-           
+
             //VARIABEL PARAMETER
             int x,y;
             int z=0;
             string a,b,c;
-        
+
             //TAMPILAN AWAL
             do{
                 cout<<"\t *MINESWEEPER*";
@@ -323,7 +323,7 @@ int main()
 
                     cout<<"\n\n\t *MINESWEEPER*";
                     cout<<"\n===============================\n";
-                    
+
                     for (x = 0; x <= 4; x++){
                         cout<<"|  ";
                         for (y = 0; y <= 4; y++){
@@ -332,12 +332,12 @@ int main()
                         cout<<endl;
                         cout<<"===============================\n";
                     }
-                    
+
                     cout<<"\n\t  Anda kalah\n";
                     break;
 
                 }
-                
+
                 //JIKA KONDISI BENAR
                 else{
                     a=A[x-1][y-1];
@@ -350,9 +350,9 @@ int main()
                         z++;
                     }
                 }
-                
+
                 cout<<"\n\n\n";
-                
+
             } while (z != 22);
 
             //JIKA PEMAIN MENANG
@@ -362,10 +362,10 @@ int main()
 
         back_to_menu();
     }
-    
+
     //CASE 5: Sorting
     else if (pilih==5){
-        
+
         //VARIABEL
         int length1, length2;
         int pilihan, i;
@@ -409,7 +409,7 @@ int main()
                 cout << "   ";
                 print_array1(arr1, length1);
         }
-        
+
         //JIKA PILIHAN MENSORTING ANGKA
         else if(pilihan == 2){
                 cout << "2. Angka" << endl;
@@ -426,7 +426,7 @@ int main()
                 cout << "   Urutan angka sebelum di sorting:" << endl;
                 cout << "   ";
                 print_array2(arr2, length2);
-            
+
                 //PENSORTINGAN DATA
                 insertion_sort2(arr2, length2);
 
@@ -450,18 +450,18 @@ int main()
 
     //CASE 6: SEARCHING
     else if (pilih==6){
-        
+
             //BANNER CASE 6
             cout << "Selamat Datang di Pemograman Searching" << endl;
             cout << "                              " << endl;
-        
+
             //VARIABEL
             int i, cari;
             int ketemu = 0;
             int A[100];
 
             cout<<" silahkan masukan 5 buah bilangan : \n\n";
-        
+
             //LOOPING INPUT DATA KE ARRAY
             for(i=1; i<=5; i++)
             {
@@ -469,7 +469,7 @@ int main()
                 cin>>A[i];
             }
             cout<<endl;
-        
+
             //INPUT DATA YANG INGIN DICARI
             cout<<"Yuk input bilangan yang kamu cari : ";cin>>cari;
             cout<<endl;
@@ -494,18 +494,18 @@ int main()
 
     //CASE 7: RECURSIVE (IMPLEMENTASI RECURSIVE ALGORITHM DI PENGHITUNGAN FAKTORIAL)
     else if (pilih==7){
-        
+
             //VARIABEL
             int recursive_factorial_number;
-        
+
             //INPUT BILANGAN FAKTORIAL
             cout << "====== Rekursif ======\n" << endl;
             cout << "Masukkan bilangan Faktorial : ";
             cin >> recursive_factorial_number;
-        
+
             //HASIL FAKTORIAL
             cout << "Hasil Faktorial dari " << recursive_factorial_number << " adalah : " << factorial(recursive_factorial_number) << endl;
-        
+
             back_to_menu();
     }
 
@@ -521,7 +521,7 @@ int main()
             back_to_menu();
         }
     }
-    
+
     while (pilih !=8);
     return 0;
 }

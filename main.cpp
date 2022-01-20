@@ -52,6 +52,8 @@ void case_1(){
 }
 
 //UNTUK CASE 5 SORTING
+
+//SORTING BUBBLE SORT
 void bubble_sort(string arr[], int length){
     bool not_sorted = true;
     int j=0;
@@ -71,6 +73,7 @@ void bubble_sort(string arr[], int length){
     }
 }
 
+//SORTING SELECTION SORT 1
 void selection_sort1(string arr[], int length){
     int pos;
     string temp;
@@ -88,6 +91,7 @@ void selection_sort1(string arr[], int length){
     }
 }
 
+//CETAK ISI ARRAY 1
 void print_array1(string arr1[], int length){
     for(int i=0; i<length; i++){
         cout << arr1[i] << "  ";
@@ -95,6 +99,7 @@ void print_array1(string arr1[], int length){
     cout << endl;
 }
 
+//SORTING INSERTION SORT 2
 void insertion_sort2(double arr2[], int length){
     int i, j;
     double temp;
@@ -111,6 +116,7 @@ void insertion_sort2(double arr2[], int length){
     }
 }
 
+//SORTING SELECTION SORT 2
 void selection_sort2(double arr2[], int length){
     int pos;
     double temp;
@@ -128,6 +134,7 @@ void selection_sort2(double arr2[], int length){
     }
 }
 
+//CETAK ISI ARRAY 2
 void print_array2(double arr2[], int length){
     for(int i=0; i<length; i++){
         cout << arr2[i] << "  ";
@@ -135,7 +142,49 @@ void print_array2(double arr2[], int length){
     cout << endl;
 }
 
-//UNTUK CASE 7
+//UNTUK CASE 6 : FUNGSI BINARY SEARCH DAN PROSEDUR BUBBLE SORT
+
+//BINARY SEARCH
+int case6_binary_search (double data[], int index, int n, double k) {
+    n = n - 1;
+
+    while (index <= n) {
+        int tengah = (index + n)/2;
+
+        if(k == data[tengah]) {
+            index = tengah;
+            return index;
+        }
+
+        else if(k < data[tengah]){ n = tengah - 1;}
+        else if(k > data[tengah]){ index = tengah + 1;}
+    }
+    index = -1;
+    return index;
+
+}
+
+//SORTING DATA SEBELUM KE BINARY SEARCH
+void case6_bubble_sort(double arr[], int length){
+    bool not_sorted = true;
+    int j=0;
+    double tmp;
+
+    while (not_sorted){
+        not_sorted = false;
+        j++;
+        for (int i = 0; i < length - j; i++){
+            if (arr[i] > arr[i+1]){
+                tmp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = tmp;
+                not_sorted = true;
+            }
+        }
+    }
+}
+
+//UNTUK CASE 7 : FUNGSI FACTORIAL
 int factorial(int n){
     if (n > 1){
         return n * factorial(n - 1);
@@ -167,13 +216,13 @@ int main()
         system("cls");
 
     //CASE 1: Input dan Output
-    if (pilih==1){
+    if (pilih == 1){
             case_1();
             back_to_menu();
     }
 
     //CASE 2: Percabangan
-    else if (pilih==2){
+    else if (pilih == 2){
 
             //VARIABEL
             int nilai;
@@ -240,7 +289,7 @@ int main()
     }
 
     //CASE 3: PERULANGAN
-    else if (pilih==3){
+    else if (pilih == 3){
 
             //VARIABEL
             int angka, pilihOperasi;
@@ -284,7 +333,7 @@ int main()
     }
 
     //CASE 4: ARRAY (PENERAPAN ARRAY DALAM GAME MINESWEEPER SEDERHANA)
-    else if (pilih==4){
+    else if (pilih == 4){
 
             //PROGRAM MINESWEPER
             //ARRAY UNTUK MENAMPUNG TEBAKAN PEMAIN
@@ -364,7 +413,7 @@ int main()
     }
 
     //CASE 5: Sorting
-    else if (pilih==5){
+    else if (pilih == 5){
 
         //VARIABEL
         int length1, length2;
@@ -449,43 +498,42 @@ int main()
     }
 
     //CASE 6: SEARCHING
-    else if (pilih==6){
+    else if (pilih == 6){
 
             //BANNER CASE 6
-            cout << "Selamat Datang di Pemograman Searching" << endl;
-            cout << "                              " << endl;
+            cout << "Selamat Datang di Pemrograman Searching" << endl;
+            cout << "                              " << endl << endl;
 
             //VARIABEL
-            int i, cari;
-            int ketemu = 0;
-            int A[100];
+            double case6_cari;
+            int case6_arr_length;
 
-            cout<<" silahkan masukan 5 buah bilangan : \n\n";
+            //INPUT BANYAKNYA DATA
+            cout << " Masukkan Banyaknya Data : "; cin >> case6_arr_length;
+            double case6_arr[case6_arr_length];
 
             //LOOPING INPUT DATA KE ARRAY
-            for(i=1; i<=5; i++)
+            cout << " Masukkan Data Bilangan " << endl;
+            for(int i = 0; i < case6_arr_length; i++)
             {
-                cout<<" data ke-"<<i<<" = ";
-                cin>>A[i];
+                cout << " Data ke-" << i+1 <<" = "; cin >> case6_arr[i];
             }
             cout<<endl;
 
+            //SORTING DATA
+            case6_bubble_sort(case6_arr, case6_arr_length);
+
             //INPUT DATA YANG INGIN DICARI
-            cout<<"Yuk input bilangan yang kamu cari : ";cin>>cari;
+            cout<<"Yuk input bilangan yang kamu cari : "; cin >> case6_cari;
             cout<<endl;
 
             //PENCARIAN DATA
-            for(i=0; i<=5; i++)
-            {
-                if (A[i]==cari)
-                {
-                    ketemu=1;
-                    cout<<"Data yang kamu cari ditemukan pada indeks ke-"<<i<<endl;
-                }
+            int case6_result = case6_binary_search(case6_arr, 0, case6_arr_length, case6_cari);
+            if (case6_result != -1){
+                    cout << "Data yang kamu cari ditemukan pada indeks ke-" << case6_result << endl;
             }
-            if(ketemu==0)
-            {
-                cout<<"Yah sayang sekali data yang kamu cari tidak ditemukan"<<endl;
+            else {
+                cout << "Yah, sayang sekali data yang kamu cari tidak ditemukan" << endl;
                 cout << "                              " << endl;
             }
 
@@ -493,24 +541,24 @@ int main()
     }
 
     //CASE 7: RECURSIVE (IMPLEMENTASI RECURSIVE ALGORITHM DI PENGHITUNGAN FAKTORIAL)
-    else if (pilih==7){
+    else if (pilih == 7){
 
             //VARIABEL
-            int recursive_factorial_number;
+            int case7_factorial_number;
 
             //INPUT BILANGAN FAKTORIAL
             cout << "====== Rekursif ======\n" << endl;
             cout << "Masukkan bilangan Faktorial : ";
-            cin >> recursive_factorial_number;
+            cin >> case7_factorial_number;
 
             //HASIL FAKTORIAL
-            cout << "Hasil Faktorial dari " << recursive_factorial_number << " adalah : " << factorial(recursive_factorial_number) << endl;
+            cout << "Hasil Faktorial dari " << case7_factorial_number << " adalah : " << factorial(case7_factorial_number) << endl;
 
             back_to_menu();
     }
 
     //JIKA PILIH MENGAKHIRI PROGRAM
-    else if (pilih==8){
+    else if (pilih == 8){
             cout << "\nTap any key to Exit...";
             getch();
             cout << endl;

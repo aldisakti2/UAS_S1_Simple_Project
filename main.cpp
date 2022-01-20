@@ -4,7 +4,7 @@
 
 using namespace std;
 
-//UNTUK BACK TO MENU
+//PROSEDUR UNTUK KEMBALI KE MENU UTAMA
 void back_to_menu(){
     cout << "\nTap any key to return to the menu...";
     getch();
@@ -43,12 +43,12 @@ void case_1(){
     cout << "              DATA MAHASISWA              "<<endl;
     cout << "------------------------------------------"<<endl;
 
-    cout << "Nama       : "<<nama<<endl;
-    cout << "NIM        : "<<nim<<endl;
-    cout << "Jurusan    : "<<jurusan<<endl;
-    cout << "Kelas      : "<<kelas<<endl;
-    cout << "Alamat     : "<<alamat<<endl;
-    cout << "Nomor HP   : "<<nomor<<endl;
+    cout << "Nama       : " << nama << endl;
+    cout << "NIM        : " << nim << endl;
+    cout << "Jurusan    : " << jurusan << endl;
+    cout << "Kelas      : " << kelas << endl;
+    cout << "Alamat     : " << alamat << endl;
+    cout << "Nomor HP   : " << nomor << endl;
 }
 
 //UNTUK CASE 5 SORTING
@@ -145,11 +145,13 @@ int factorial(int n){
     }
 }
 
+//FUNGSI UTAMA
 int main()
 {
-     int pilih;
+    int pilih;
     do
     {
+        //TAMPILAN MENU
         cout << "================================\n";
         cout << "======== MENU MODUL C++ ========\n";
         cout << "================================\n" << endl;
@@ -164,63 +166,71 @@ int main()
         cout << "Masukkan Pilihan Anda: "; cin >> pilih;
         system("cls");
 
-    if(pilih==1){
+    //CASE 1: Input dan Output
+    if (pilih==1){
             case_1();
             back_to_menu();
     }
+    
+    //CASE 2: Percabangan
     else if (pilih==2){
 
-            //ISI
+            //VARIABEL
             int nilai;
             string password, grade;
 
+            //LOGIN INPUT
             cout << "========= Login =========" << endl;
             cout << "Masukan password (kota asal ITTP) : ";
             cin >> password;
 
-            // percabangan if/else
+            //PERCABANGAN IF dan ELSE
             if (password == "purwokerto" || "Purwokerto" || "PURWOKERTO"){
                 cout << "Selamat datang!" << endl << endl;
 
                 cout << "=== Program Grade Nilai ===" << endl;
                 cout << "Inputkan nilai Anda : ";
                 cin >> nilai;
-            if (nilai >= 90) {
-                grade = "A";
-            } else if (nilai >= 80) {
-                grade = "B+";
-            } else if (nilai >= 70) {
-                grade = "B";
-            } else if (nilai >= 60) {
-                grade = "C+";
-            } else if (nilai >= 50) {
-                grade = "C";
-            } else if (nilai >= 40) {
-                grade = "D";
-            } else if (nilai >= 30) {
-                grade = "E";
-            } else {
-                grade = "F";
-            }
+                if (nilai >= 90) {
+                    grade = "A";
+                } else if (nilai >= 80) {
+                    grade = "B+";
+                } else if (nilai >= 70) {
+                    grade = "B";
+                } else if (nilai >= 60) {
+                    grade = "C+";
+                } else if (nilai >= 50) {
+                    grade = "C";
+                } else if (nilai >= 40) {
+                    grade = "D";
+                } else if (nilai >= 30) {
+                    grade = "E";
+                } else {
+                    grade = "F";
+                }
 
-            cout << "Grade anda: " << grade << endl << endl;
+                //MENAMPILKAN TINGKAT BERDASARKAN NILAI INPUT
+                cout << "Grade anda: " << grade << endl << endl;
 
-            char tips;
-            cout << "Ingin tau tips mendapatkan nilai bagus? (Y/N) : \n";
-            cin >> tips;
+                //TIPS
+                char tips;
+                cout << "Ingin tau tips mendapatkan nilai bagus? (Y/N) : \n";
+                cin >> tips;
 
-            //Percabangan Switch
-            switch (toupper(tips)){
-                case 'Y':
-                    cout << "\nTipsnya adalah Belajar dan berdoa" << endl << endl;
-                    break;
-                case 'N':
-                    cout << "Oke" << endl;
-                    break;
-                default:
-                    cout << "Input Salah!" << endl;
-            }
-            } else {
+                //PERCABANGAN SWITCH
+                switch (toupper(tips)){
+                    case 'Y':
+                        cout << "\nTipsnya adalah Belajar dan berdoa" << endl << endl;
+                        break;
+                    case 'N':
+                        cout << "Oke" << endl;
+                        break;
+                    default:
+                        cout << "Input Salah!" << endl;
+                }
+            } 
+        
+            else {
                 cout << "Password salah, coba lagi!"  << endl;
             }
 
@@ -228,53 +238,68 @@ int main()
 
             back_to_menu();
     }
+    
+    //CASE 3: PERULANGAN
     else if (pilih==3){
 
-            //ISI
+            //VARIABEL
             int angka, pilihOperasi;
 
+            //PENJELASAN TENTANG PROGRAM
             cout << "Program ini akan melakukan penjumlahan, pengurangan, dan perkalian ^^\n";
             cout << "Program akan melakukan perhitungan dari bilangan yang diinput dengan angka 1-10 ^^\n";
             cout << "\nAyo, masukkan bilangan yang akan dihitung : ";
             cin >> angka;
+        
+            //PILIH OPERASI PERHITUNGAN
             cout << "\nDaftar operasi perhitungan\n";
             cout << "1. Penjumlahan\n";
             cout << "2. Pengurangan\n";
             cout << "3. Perkalian\n";
+        
             cout << "Pilih Operasi perhitungan : ";
             cin >> pilihOperasi;
 
-            if (pilihOperasi==1){
+            if ( pilihOperasi == 1 ){
                 cout << "\nPENJUMLAHAN\n";
                 for (int i = 0; i<10; i++){
                     cout << angka << " + " << i+1 << " = " << angka+(i+1)<< endl;
                 }
-            }else if (pilihOperasi==2){
+            }
+        
+            else if ( pilihOperasi == 2 ){
                 cout << "\nPENGURANGAN\n";
                 for (int i = 0; i<10; i++){
-                    cout << angka << " - " << i+1 << " = " << angka-(i+1)<< endl;
+                    cout << angka << " - " << i+1 << " = " << angka - (i + 1)<< endl;
                 }
-            }else {
+            }
+        
+            else {
                 cout << "\nPERKALIAN\n";
                 for (int i = 0; i<10; i++){
-                    cout << angka << " x " << i+1 << " = " << angka*(i+1)<< endl;
+                    cout << angka << " x " << i+1 << " = " << angka * (i + 1)<< endl;
                 }
             }
             back_to_menu();
     }
+        
+    //CASE 4: ARRAY (PENERAPAN ARRAY DALAM GAME MINESWEEPER SEDERHANA)
     else if (pilih==4){
 
-            //ISI
             //PROGRAM MINESWEPER
-            //platform awal
+            //ARRAY UNTUK MENAMPUNG TEBAKAN PEMAIN
             string A[5][5] ={{" "," "," "," "," "},{" "," "," "," "," "},{" "," "," "," "," "},{" "," "," "," "," "},{" "," "," "," "," "}};
-            //kunci jawaban
+            
+            //KUNCI JAWABAN GAME
             string B[5][5] ={{"1","1","1","_","_"},{"1","*","2","1","1"},{"1","1","3","*","2"},{"_","_","2","*","2"},{"_","_","1","1","1"}};
             string C[5][5] ={{"1","1","1","_","_"},{"1","*","2","1","1"},{"1","1","3","*","2"},{"_","_","2","*","2"},{"_","_","1","1","1"}};
+           
+            //VARIABEL PARAMETER
             int x,y;
             int z=0;
             string a,b,c;
-            //tampilan awal
+        
+            //TAMPILAN AWAL
             do{
                 cout<<"\t *MINESWEEPER*";
                 cout<<"\n===============================\n";
@@ -292,25 +317,29 @@ int main()
                 cout<<"Masukkan Baris [1-5]: ";
                 cin>>x;
 
-            //jika kondisi salah
-                if(B[x-1][y-1]=="*"){
-                    A[x-1][y-1]="*";
+                //JIKA KONDISI SALAH DAN PEMAIN KALAH
+                if( B[x-1][y-1] == "*" ){
+                    A[x-1][y-1] = "*" ;
 
                     cout<<"\n\n\t *MINESWEEPER*";
                     cout<<"\n===============================\n";
-                    for (x=0;x<=4;x++){
+                    
+                    for (x = 0; x <= 4; x++){
                         cout<<"|  ";
-                        for (y=0;y<=4;y++){
+                        for (y = 0; y <= 4; y++){
                             cout<<A[x][y]<<"  |  ";
                         }
                         cout<<endl;
                         cout<<"===============================\n";
                     }
+                    
                     cout<<"\n\t  Anda kalah\n";
                     break;
 
-            //jika kondisi benar
-                }else{
+                }
+                
+                //JIKA KONDISI BENAR
+                else{
                     a=A[x-1][y-1];
                     b=B[x-1][y-1];
                     c=C[x-1][y-1];
@@ -321,81 +350,93 @@ int main()
                         z++;
                     }
                 }
+                
                 cout<<"\n\n\n";
-            }while(z!=22);
+                
+            } while (z != 22);
 
-            if(z==22){
+            //JIKA PEMAIN MENANG
+            if (z == 22){
                 cout<<"\t  Anda menang\n";
             }
 
         back_to_menu();
     }
-
+    
+    //CASE 5: Sorting
     else if (pilih==5){
+        
+        //VARIABEL
         int length1, length2;
         int pilihan, i;
 
+        //MENU SORTING NAMA ATAU ANGKA
         cout << "====== Sorting ======" << endl;
         cout << "1. Nama" << endl;
         cout << "2. Angka" << endl;
-        cout << "Masukkan Pilihan : "; cin >> pilihan;
+        cout << "Masukkan Pilihan [1-2]: "; cin >> pilihan;
 
+        //JIKA PILIHAN MENSORTING NAMA
         if (pilihan == 1){
                 cout << "1. Nama" << endl;
                 cout << "   Berapa nama yang ingin di input : "; cin >> length1;
                 string arr1[length1];
 
+                //LOOPING INPUT NAMA
                 for(i=0; i<length1; i++){
                     cout << "   Nama ke-" << i+1 << " : "; cin >> arr1[i];
-                    //arr1[i] = karakter;
                 }
 
-                //Hasil Sebelum Sorting
+                //HASIL SEBELUM SORTING
                 cout << endl;
                 cout << "   Urutan nama sebelum di sorting:" << endl;
                 cout << "   ";
                 print_array1(arr1, length1);
 
-                //Pensortingan Data
+                //PENSORTINGAN DATA
                 bubble_sort(arr1, length1);
 
-                //Hasil Ascending Sorting
+                //HASIL ASCENDING SORTING
                 cout << endl;
                 cout << "   Uruturan nama setelah ascending sort:" << endl;
                 cout << "   ";
                 print_array1(arr1, length1);
 
-                //Hasil Descending Sorting
+                //HASIL DESCENDING SORTING
                 cout << endl;
                 cout << "   Uruturan nama setelah descending sort:" << endl;
                 selection_sort1(arr1, length1);
                 cout << "   ";
                 print_array1(arr1, length1);
         }
+        
+        //JIKA PILIHAN MENSORTING ANGKA
         else if(pilihan == 2){
                 cout << "2. Angka" << endl;
                 cout << "   Berapa angka yang ingin di input : "; cin >> length2;
                 double arr2[length2];
 
-                for(i=0; i<length2; i++){
+                //LOOPING INPUT ANGKA
+                for(i = 0; i < length2; i++){
                     cout << "   Angka ke-" << i+1 << " : "; cin >> arr2[i];
-                    //arr2[length] = angka;
                 }
 
-                //Hasil Sebelum Sorting
+                //HASIL SEBELUM SORTING
                 cout << endl;
                 cout << "   Urutan angka sebelum di sorting:" << endl;
                 cout << "   ";
                 print_array2(arr2, length2);
+            
+                //PENSORTINGAN DATA
                 insertion_sort2(arr2, length2);
 
-                //Hasil Ascending Sorting
+                //HASIL ASCENDING SORTING
                 cout << endl;
                 cout << "   Uruturan angka setelah ascending sort:" << endl;
                 cout << "   ";
                 print_array2(arr2, length2);
 
-                //Hasil Descending Sorting
+                //HASIL DESCENDING SORTING
                 cout << endl;
                 cout << "   Uruturan angka setelah descending sort:" << endl;
                 cout << "   ";
@@ -407,25 +448,33 @@ int main()
 
     }
 
+    //CASE 6: SEARCHING
     else if (pilih==6){
-             cout << "Selamat Datang di Pemograman Searching" << endl;
+        
+            //BANNER CASE 6
+            cout << "Selamat Datang di Pemograman Searching" << endl;
             cout << "                              " << endl;
-            //ISI
-            int i;
-            int cari, ketemu;
+        
+            //VARIABEL
+            int i, cari;
+            int ketemu = 0;
             int A[100];
 
             cout<<" silahkan masukan 5 buah bilangan : \n\n";
+        
+            //LOOPING INPUT DATA KE ARRAY
             for(i=1; i<=5; i++)
             {
                 cout<<" data ke-"<<i<<" = ";
                 cin>>A[i];
             }
             cout<<endl;
+        
+            //INPUT DATA YANG INGIN DICARI
             cout<<"Yuk input bilangan yang kamu cari : ";cin>>cari;
             cout<<endl;
 
-            ketemu=0;
+            //PENCARIAN DATA
             for(i=0; i<=5; i++)
             {
                 if (A[i]==cari)
@@ -443,15 +492,24 @@ int main()
             back_to_menu();
     }
 
+    //CASE 7: RECURSIVE (IMPLEMENTASI RECURSIVE ALGORITHM DI PENGHITUNGAN FAKTORIAL)
     else if (pilih==7){
+        
+            //VARIABEL
             int recursive_factorial_number;
+        
+            //INPUT BILANGAN FAKTORIAL
             cout << "====== Rekursif ======\n" << endl;
             cout << "Masukkan bilangan Faktorial : ";
             cin >> recursive_factorial_number;
+        
+            //HASIL FAKTORIAL
             cout << "Hasil Faktorial dari " << recursive_factorial_number << " adalah : " << factorial(recursive_factorial_number) << endl;
+        
             back_to_menu();
     }
 
+    //JIKA PILIH MENGAKHIRI PROGRAM
     else if (pilih==8){
             cout << "\nTap any key to Exit...";
             getch();
@@ -463,6 +521,7 @@ int main()
             back_to_menu();
         }
     }
+    
     while (pilih !=8);
     return 0;
 }

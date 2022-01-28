@@ -2,7 +2,7 @@
 
 Welcome to the Simple Project for Final Exam
 <br/><br/>
-Member Group : <br/>
+Member Group 1 From IF-09-H : <br/>
 - Aldi Khan Sakti Alvayadi              (21102270)<br/>
 - Aprilia Intan Prasetya                (21102286)<br/>
 - Bintang Kusuma Ardana                 (21102290)<br/>

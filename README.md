@@ -12,5 +12,5 @@ Member Group 1 From IF-09-H : <br/>
 - Lintang Cahya Mulyadani               (21102301)<br/>
 - Roymond Bintang Azzahro               (21102324)<br/>
 - Ikbar Fadlurahman Syahputra           (21102325)<br/>
-- Reynant Phaza Dealank                 (21102325)<br/>
+- Reynant Phaza Dealank                 (21102326)<br/>
 
